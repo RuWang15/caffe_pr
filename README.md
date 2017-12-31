@@ -1,6 +1,6 @@
 
 # Caffe for Pseudo-Random Dropout
-Our modified Caffe for pseudo-random dropout. This repository at least runs on Ubuntu 14.04, OpenCV 2.4.10, CUDA 8.0, and CUDNN 5.
+Our modified Caffe for pseudo-random dropout. This repository at least runs on Ubuntu 14.04, gcc 4.8, OpenCV 2.4.10, CUDA 8.0, and CUDNN 5.
 ## New Features
 - Add inner product dropout layer for GPU acceleration.
   - Up to 2.4 times as fast as dropout + inner product.(test on GTX 1080)
@@ -8,7 +8,35 @@ Our modified Caffe for pseudo-random dropout. This repository at least runs on U
 ## Installation
 - You may add `CXXFLAGS += -std=c++11` in Makefile.Config before compiling.
 - For installation instructions please search on the internet.
-### More info about this repo comming soon...
+## Example 
+- The example of usage of InnerProductDropoutLayer is as follows:
+  - `seq_addr` is the address of the skipping period sequence file. The file is formatted as [seq_in1024.txt](https://github.com/WilliamRuRu15/caffe_pr/blob/master/seq_in1024.txt). The first number denotes the length of the sequence, and the rest numbers are elements.
+```
+layer {
+  name: "ipd1"
+  type: "InnerProductDropout"
+  bottom: "pool3"
+  top: "ipd1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_dropout_param {
+    seq_addr: "/home/user/caffe_pr/seq_in1024.txt"
+    num_output: 64
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+```
+### More examples and test files will be updated soon!
 # Caffe
 
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
