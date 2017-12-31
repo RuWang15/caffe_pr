@@ -1,3 +1,14 @@
+
+# Caffe for Pseudo-Random Dropout
+Our modified Caffe for pseudo-random dropout. This repository at least runs on Ubuntu 14.04, OpenCV 2.4.10, CUDA 8.0, and CUDNN 5.
+## New Features
+- Add inner product dropout layer for GPU acceleration.
+  - Up to 2.4 times as fast as dropout + inner product.(test on GTX 1080)
+- New functions in math_functions.cu to optimize matrix multiplication.
+## Installation
+- You may add `CXXFLAGS += -std=c++11` in Makefile.Config before compiling.
+- For installation instructions please search on the internet.
+### More info about this repo comming soon...
 # Caffe
 
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
