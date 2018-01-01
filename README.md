@@ -5,9 +5,13 @@ Our modified Caffe for pseudo-random dropout. This repository at least runs on U
 - Add [inner product dropout layer](https://github.com/WilliamRuRu15/caffe_pr/blob/master/src/caffe/layers/inner_product_dropout_layer.cu) for GPU acceleration.
   - Up to 2.4 times as fast as dropout + inner product. (forward pass, test on GTX 1080)
 - New functions in [math_functions.cu](https://github.com/WilliamRuRu15/caffe_pr/blob/master/src/caffe/util/math_functions.cu) to optimize matrix multiplication.
+## Illustration
+- The overall process from sequence generating to forward pass of IPD layer is shown as below. Note that this repository does **not** contain the part in dashed line box.
+For code or files of that part, please see [Pseudo-Random-Dropout](https://github.com/rudongyu/Pseudo-Random-Dropout) for detail.
+![illustration](https://github.com/WilliamRuRu15/caffe_pr/blob/master/images/pseudo-random_illustration.png)
 ## Installation
 - You may add `CXXFLAGS += -std=c++11` in Makefile.Config before compiling.
-- For installation instructions please search on the internet.
+- For detailed installation instructions of Caffe please search on the internet. For convenience (not recommended) you just need one command `make all -j8`.
 ## Example 
 - The example of usage of inner product dropout layer is as follows:
     - `seq_addr` is the address of the skipping period sequence file. The file is formatted as in [seq_in1024.txt](https://github.com/WilliamRuRu15/caffe_pr/blob/master/seq_in1024.txt). The first number denotes the length of the sequence, and the rest numbers are elements.
