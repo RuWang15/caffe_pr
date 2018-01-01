@@ -12,6 +12,8 @@ For code or files of that part, please see [Pseudo-Random-Dropout](https://githu
 ## Installation
 - You may add `CXXFLAGS += -std=c++11` in Makefile.Config before compiling.
 - For detailed installation instructions of Caffe please search on the internet. For convenience (not recommended) you just need one command `make all -j8`.
+## Training and Testing
+Comming soon!
 ## Example 
 - The example of usage of inner product dropout layer is as follows:
     - `seq_addr` is the address of the skipping period sequence file. The file is formatted as in [seq_in1024.txt](https://github.com/WilliamRuRu15/caffe_pr/blob/master/seq_in1024.txt). The first number denotes the length of the sequence, and the rest numbers are elements.
