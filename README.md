@@ -11,7 +11,7 @@ For code or files of that part, please see [Pseudo-Random-Dropout](https://githu
 ![illustration](https://github.com/WilliamRuRu15/caffe_pr/blob/master/images/pseudo-random_illustration.png)
 ## Installation
 - You may add `CXXFLAGS += -std=c++11` in Makefile.Config before compiling.
-- For detailed installation instructions of Caffe please search on the internet. For convenience (not recommended) you just need one command `make all -j8`.
+- For detailed installation instructions of Caffe please search on the internet. For convenience (not recommended) you just need one command `make all -j8` (if the dependencies are satisfied).
 ## Training and Testing
 - The prototxt for [dropout+ip](https://github.com/WilliamRuRu15/caffe_pr/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt) and [ipd](https://github.com/WilliamRuRu15/caffe_pr/blob/master/examples/cifar10/cifar10_quick_train_test_ipd.prototxt) are added in this repository.
 - Logs of the time test on the them can be found in the root (skipping period T ranging 1~64 for ipd).
@@ -44,7 +44,7 @@ layer {
   }
 }
 ```
-### More examples and test files will be updated soon!
+
 # Caffe
 
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
