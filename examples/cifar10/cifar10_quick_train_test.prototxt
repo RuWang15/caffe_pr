@@ -160,6 +160,15 @@ layer {
   }
 }
 layer {
+  name: "drop1"
+  type: "Dropout"
+  bottom: "pool3"
+  top: "pool3"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
   name: "ip1"
   type: "InnerProduct"
   bottom: "pool3"
@@ -179,6 +188,15 @@ layer {
     bias_filler {
       type: "constant"
     }
+  }
+}
+layer {
+  name: "drop2"
+  type: "Dropout"
+  bottom: "ip1"
+  top: "ip1"
+  dropout_param {
+    dropout_ratio: 0.5
   }
 }
 layer {
